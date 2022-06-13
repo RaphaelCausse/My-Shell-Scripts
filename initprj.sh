@@ -4,7 +4,7 @@ function usage {
     echo -e "\e[1mUsage:\e[0m\n\t\tinitprj [-h] [ -l language ] [ -n project_name ]\n"
     echo -e "\e[1mOptions:\e[0m"
     echo -e "\t\e[1m-h\e[0m\tPrint this help message and exit.\n"
-    echo -e "\t\e[1m-l\e[0m\tInit specified [language] project directory.\n\t\tSupported languages : C, WEB (HTML-CSS-JS).\n"
+    echo -e "\t\e[1m-l\e[0m\tInit specified [language] project directory.\n\t\tSupported languages : C, C++/Cpp, WEB (HTML-CSS-JS).\n"
     echo -e "\t\e[1m-n\e[0m\tInit project directory as [project_name] directory.\n"
     echo -e "\e[1mDescription:\e[0m"
     echo -e "\tInit Project (initprj) is a tool to create and initalize a new project directory corresponding to a programming language and a project name."
@@ -22,6 +22,9 @@ while getopts "hl:n:" options; do
             # C
             if echo ${OPTARG} | grep -qi "^C$" ; then
                 cp -r /home/raphael/Modèles/initprj/C_prj/ C_Project && LANG=1
+            # C++
+            if echo ${OPTARG} | grep -qi "^CPP$" | grep -qi "^C++$" ; then
+                cp -r /home/raphael/Modèles/initprj/Cpp_prj/ Cpp_Project && LANG=1
             # WEB DEV
             elif echo ${OPTARG} | grep -qi "^WEB$" ; then
                 cp -r /home/raphael/Modèles/initprj/WEB_prj/ WEB_Project && LANG=2

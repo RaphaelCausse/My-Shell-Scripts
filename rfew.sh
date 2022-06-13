@@ -1,7 +1,7 @@
 #!/bin/bash
 
 function usage {
-    echo -e "\e[1mUsage:\e[0m\n\trfew [-h|-l] [ -a|-r path/to/script ]\n"
+    echo -e "\e[1mUsage:\e[0m\n\trfew [-h|-l] [-a|-r path_to_script]\n"
     echo -e "\e[1mOptions:\e[0m"
 	echo -e "\t\e[1m-h\e[0m\tPrint this help message and exit."
     echo -e "\t\e[1m-l\e[0m\tList all files in /usr/local/bin/ ."
