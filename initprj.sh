@@ -7,7 +7,7 @@ function usage {
     echo -e "\t\e[1m-l\e[0m\tInit specified [language] project directory.\n\t\tSupported languages : C, C++, Python, Web (HTML-CSS-JS).\n"
     echo -e "\t\e[1m-n\e[0m\tInit project directory as [project_name] directory.\n"
     echo -e "\e[1mDescription:\e[0m"
-    echo -e "\tInit Project (initprj) is a tool to create and initalize a new project directory corresponding to a programming language and a project name."
+    echo -e "\tInit Project (initprj) is a tool to create and initalize a specified language project directory."
 }
 
 # Color variables

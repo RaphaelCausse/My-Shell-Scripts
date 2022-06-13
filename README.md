@@ -8,7 +8,7 @@ Description of my shell scripts:
 
 * **pikachu.sh** : Banner for terminal.
 
-* **initprj.sh** : Init Project (initprj) is a tool to create and initalize a new project directory specific to a programming language.
+* **initprj.sh** : Init Project (initprj) is a tool to create and initalize a specified language project directory.
 
 * **rfew.sh** : Run From EveryWhere (rfew) is a tool to make your scripts executable everywhere. Make sure to give your script execution rights.
 <br><br>
