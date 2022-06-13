@@ -6,9 +6,9 @@ Description of my shell scripts:
 
 * **cow.sh** : Banner for terminal.
 
-* **cikachu.sh** : Banner for terminal.
+* **pikachu.sh** : Banner for terminal.
 
-* **initprj.sh** : Init Project (initprj) is a tool to create and initalize a new project directory corresponding to a programming language and a project name.
+* **initprj.sh** : Init Project (initprj) is a tool to create and initalize a new project directory specific to a programming language.
 
 * **rfew.sh** : Run From EveryWhere (rfew) is a tool to make your scripts executable everywhere. Make sure to give your script execution rights.
 <br><br>
@@ -17,12 +17,12 @@ Description of my shell scripts:
 
 **Add execution rights** to your scripts :
 ```bash
-chmod +x <path_to_script>
+chmod +x <script_name>
 ```
 **Install** scripts for global usage using my **rfew.sh** script :
 ```bash
-./rfew -a <rfew.sh>
-rfew -a <path_to_script>
+./rfew.sh -a <rfew.sh>
+rfew -a <script_name>
 ```
 <br>
 
