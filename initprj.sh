@@ -3,7 +3,7 @@
 function usage {
     clear
     echo -e "${GRN}${BOLD}NAME${NT}${NC}"
-    echo -e "\tinitprj - initalize a specific language project directory\n"
+    echo -e "\tinitprj - initialize a specific language project directory\n"
     echo -e "${GRN}${BOLD}SYNOPSIS${NT}${NC}"
     echo -e "\t./initprj.sh [${GRN}${BOLD}-h${NT}${NC}]"
     echo -e "\t./initprj.sh [${GRN}${BOLD}-n${NT}${NC} <${CYAN}project_name${NC}>] ${GRN}${BOLD}-l${NT}${NC} <${CYAN}language${NC}>\n"

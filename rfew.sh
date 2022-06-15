@@ -41,6 +41,7 @@ while getopts "hla:r:" options; do
         h)
             usage && exit 0 ;;
         l)
+            echo "Files in ~/.local/bin/ :"
             list_files_local_bin ;; 
         a)
             if [ -x ${OPTARG} ]; then
