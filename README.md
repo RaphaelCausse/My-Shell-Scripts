@@ -1,6 +1,6 @@
 [![OS](https://img.shields.io/badge/os-linux-blue.svg)](https://shields.io/)
 
-# MY SHELL SCRIPTS
+# MY LINUX SHELL SCRIPTS
 
 Description of my shell scripts:
 
@@ -10,16 +10,16 @@ Description of my shell scripts:
 
 * **initprj.sh** : Init Project (initprj) is a tool to create and initalize a specified language project directory.
 
-* **rfew.sh** : Run From EveryWhere (rfew) is a tool to make your scripts executable everywhere. Make sure to give your script execution rights.
+* **rfew.sh** : Run From EveryWhere (rfew) is a tool to make your scripts executable everywhere.
 <br><br>
 
 ## INSTALLATION
 
-**Add execution rights** to your scripts :
+**Add execution rights** to your scripts if not already done :
 ```bash
 chmod +x <script_name>
 ```
-**Install** scripts for global usage using my **rfew.sh** script :
+**Install** my **rfew.sh** script:
 ```bash
 ./rfew.sh -a <rfew.sh>
 rfew -a <script_name>
@@ -28,13 +28,16 @@ rfew -a <script_name>
 
 ## FEATURES
 
-**Help** message for **rfew.sh** script :
+For **rfew.sh** :
+* **Help** message :
 ```bash
 rfew -h
 ```
-**List** scripts added with **rfew.sh** :
+
+For **initprj.sh** :
+* **Help** message :
 ```bash
-rfew -l
+rfew -h
 ```
 <br>
 
