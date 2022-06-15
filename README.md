@@ -34,13 +34,13 @@ rfew -a <script_name>
 For **rfew.sh** :
 * **Help** message :
 ```bash
-rfew -h
+./rfew.sh -h
 ```
 
 For **initprj.sh** :
 * **Help** message :
 ```bash
-rfew -h
+./initprj.sh -h
 ```
 <br>
 
