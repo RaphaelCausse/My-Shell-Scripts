@@ -19,9 +19,12 @@ Description of my shell scripts:
 ```bash
 chmod +x <script_name>
 ```
-**Install** my **rfew.sh** script:
+**Install** my **rfew.sh** script :
 ```bash
-./rfew.sh -a <rfew.sh>
+./rfew.sh -a rfew.sh
+```
+Then use it to install your scripts :
+```bash
 rfew -a <script_name>
 ```
 <br>
