@@ -1,17 +1,39 @@
 #!/bin/bash
 
 function usage {
-    echo -e "\e[1mUsage:\e[0m\n\trfew [-h|-l] [-a|-r script_name]\n"
-    echo -e "\e[1mOptions:\e[0m"
-	echo -e "\t\e[1m-h\e[0m\tPrint this help message and exit."
-    echo -e "\t\e[1m-l\e[0m\tList all files in ~/.local/bin/ ."
-    echo -e "\t\e[1m-a\e[0m\tAdd script to ~/.local/bin . Make it executable in every directory.\n"
-    echo -e "\t\e[1m-r\e[0m\tRemove script from ~/.local/bin .\n"
-    echo -e "\e[1mDescription:\e[0m"
-    echo -e "\tRun From EveryWhere (rfew) is a tool to make your scripts executable everywhere. Make sure to give your script execution rights."
+    clear
+    echo -e "${GRN}${BOLD}NAME${NT}${NC}"
+    echo -e "\trfew - run a script from everywhere\n"
+    echo -e "${GRN}${BOLD}SYNOPSIS${NT}${NC}"
+    echo -e "\t./rfew.sh [${GRN}${BOLD}-h${NT}${NC}|${GRN}${BOLD}-l${NT}${NC}]"
+    echo -e "\t./rfew.sh ${GRN}${BOLD}-a${NT}${NC}|${GRN}${BOLD}-r${NT}${NC} <${CYAN}script${NC}>\n"
+    echo -e "${GRN}${BOLD}OPTIONS${NT}${NC}"
+    echo -e "\t${GRN}${BOLD}-h${NT}${NC}\tdisplay this help message and exit\n"
+    echo -e "\t${GRN}${BOLD}-l${NT}${NC}\tlist all script files in ~/.local/bin/\n"
+    echo -e "\t${GRN}${BOLD}-a${NT}${NC} ${CYAN}script${NC}"
+    echo -e "\t\tadd ${CYAN}script${NC} to ~/.local/bin/\n"
+    echo -e "\t${GRN}${BOLD}-r${NT}${NC} ${CYAN}script${NC}"
+    echo -e "\t\tremove ${CYAN}script${NC} from ~/.local/bin/\n\t\tif ${CYAN}script${NC} doesn't exist, it list all script files that can be removed"
+    echo -e "${GRN}${BOLD}DESCRIPTION${NT}${NC}"
+    echo -e "\tRfew is a tool to make a script executable from everywhere in a user session.\n\tIt installs a copy of a script without the file extension in ~/.local/bin/.\n\tThe user can call the script as a command everywhere.\n"
+    echo -e "${GRN}${BOLD}AUTHOR${NT}${NC}"
+    echo -e "\tWritten by Raphael CAUSSE.\n"
 }
 
+function list_files_local_bin {
+    for i in $(find ~/.local/bin/ -executable -type f); do
+        [ -x $i ] && echo -e "${GRN}${BOLD}$(basename ${i})${NT}${NC}"
+    done
+}
+
+# Text modifier variables
+BOLD='\e[1m'
+NT='\e[0m'
+
+# Text color variables
 RED='\033[0;31m'
+GRN='\033[0;32m'
+CYAN='\033[0;36m'
 NC='\033[0m'
 
 while getopts "hla:r:" options; do
@@ -19,7 +41,7 @@ while getopts "hla:r:" options; do
         h)
             usage && exit 0 ;;
         l)
-            ls -lh --color=auto ~/.local/bin/ ;;
+            list_files_local_bin ;; 
         a)
             if [ -x ${OPTARG} ]; then
                 name_script=$(basename ${OPTARG} | cut -d'.' -f1)
@@ -38,7 +60,7 @@ while getopts "hla:r:" options; do
             else
                 echo -e "${RED}\e[1mError:\e[0m${NC} unvalid file: no such file '${name_script}'\n"
                 echo "Files you can remove from ~/.local/bin/ :"
-                ls --color=auto ~/.local/bin/
+                list_files_local_bin
                 exit 3
             fi ;;
         *)

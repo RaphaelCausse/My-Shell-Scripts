@@ -1,17 +1,32 @@
 #!/bin/bash
 
 function usage {
-    echo -e "\e[1mUsage:\e[0m\n\t\tinitprj [-h] [ -l language ] [ -n project_name ]\n"
-    echo -e "\e[1mOptions:\e[0m"
-    echo -e "\t\e[1m-h\e[0m\tPrint this help message and exit.\n"
-    echo -e "\t\e[1m-l\e[0m\tInit specified [language] project directory.\n\t\tSupported languages : C, C++, Python, Web (HTML-CSS-JS).\n"
-    echo -e "\t\e[1m-n\e[0m\tInit project directory as [project_name] directory.\n"
-    echo -e "\e[1mDescription:\e[0m"
-    echo -e "\tInit Project (initprj) is a tool to create and initalize a specified language project directory."
+    clear
+    echo -e "${GRN}${BOLD}NAME${NT}${NC}"
+    echo -e "\tinitprj - initalize a specific language project directory\n"
+    echo -e "${GRN}${BOLD}SYNOPSIS${NT}${NC}"
+    echo -e "\t./initprj.sh [${GRN}${BOLD}-h${NT}${NC}]"
+    echo -e "\t./initprj.sh [${GRN}${BOLD}-n${NT}${NC} <${CYAN}project_name${NC}>] ${GRN}${BOLD}-l${NT}${NC} <${CYAN}language${NC}>\n"
+    echo -e "${GRN}${BOLD}OPTIONS${NT}${NC}"
+    echo -e "\t${GRN}${BOLD}-h${NT}${NC}\tdisplay this help message and exit\n"
+    echo -e "\t${GRN}${BOLD}-l${NT}${NC} ${CYAN}language${NC}"
+    echo -e "\t\tinitialize a new ${CYAN}language${NC} project directory\n"
+    echo -e "\t${GRN}${BOLD}-n${NT}${NC} ${CYAN}project_name${NC}"
+    echo -e "\t\tname project directory as ${CYAN}project_name${NC}\n"
+    echo -e "${GRN}${BOLD}DESCRIPTION${NT}${NC}"
+    echo -e "\tInitprj is a tool to create and initialize a specific language project directory.\n\tSupported languages : C, C++, Python, Web (HTML, CSS, JS)\n"
+    echo -e "${GRN}${BOLD}AUTHOR${NT}${NC}"
+    echo -e "\tWritten by Raphael CAUSSE.\n"
 }
 
-# Color variables
+# Text modifier variables
+BOLD='\e[1m'
+NT='\e[0m'
+
+# Text color variables
 RED='\033[0;31m'
+GRN='\033[0;32m'
+CYAN='\033[0;36m'
 NC='\033[0m'
 lang=""
 
@@ -30,12 +45,18 @@ while getopts "hl:n:" options; do
             elif echo ${OPTARG} | grep -qi "^WEB$" ; then
                 lang="Web Dev"
             else
-                echo -e "${RED}\e[1mError:\e[0m${NC} language not supported."
+                echo -e "${RED}\e[1mError:\e[0m${NC} language ${OPTARG} is not supported."
                 echo "Run « initprj -h » for more information."
                 exit 2
             fi ;;
         n)  # Directory name
-            dir_name=${OPTARG} ;;
+            if [ ! -e "${OPTARG}" ]; then
+                dir_name=${OPTARG}
+            else
+                echo -e "${RED}\e[1mError:\e[0m${NC} file or folder ${OPTARG} already exists here."
+                echo "Run « initprj -h » for more information."
+                exit 3
+            fi ;;
         *)
             usage && exit 1 ;;
     esac
