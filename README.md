@@ -53,7 +53,7 @@ rfew -r <script_name>
 For **initprj.sh** :
 * **Install** my **initprj.sh** script :
 ```bash
-./initprj -i
+./initprj.sh -i
 ```
 * **Help** message :
 ```bash
