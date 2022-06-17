@@ -15,29 +15,46 @@ Description of my shell scripts:
 
 ## INSTALLATION
 
-**Add execution rights** to your scripts if not already done :
+**Clone** this repository :
+```bash
+git clone https://github.com/RaphaelCausse/My-Shell-Scripts.git
+```
+**Move** to the cloned directory :
+```bash
+cd My-Shell-Scripts
+```
+**Add execution rights** to the scripts :
 ```bash
 chmod +x <script_name>
-```
-**Install** my **rfew.sh** script :
-```bash
-./rfew.sh -a rfew.sh
-```
-Then use it to install your scripts :
-```bash
-rfew -a <script_name>
 ```
 <br>
 
 ## FEATURES
 
 For **rfew.sh** :
+* **Install** my **rfew.sh** script :
+```bash
+./rfew.sh -a rfew.sh
+```
+* Then install your scripts :
+```bash
+rfew -a <script_name>
+```
+* Or remove your scripts :
+```bash
+rfew -r <script_name>
+```
 * **Help** message :
 ```bash
 ./rfew.sh -h
 ```
+<br>
 
 For **initprj.sh** :
+* **Install** my **initprj.sh** script :
+```bash
+./initprj -i
+```
 * **Help** message :
 ```bash
 ./initprj.sh -h
