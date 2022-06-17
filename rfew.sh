@@ -42,12 +42,13 @@ while getopts "hla:r:" options; do
             usage && exit 0 ;;
         l)
             echo "Script files in ~/.local/bin/ :"
-            list_files_local_bin ;; 
+            list_files_local_bin
+            exit 0 ;;
         a)
             if [ -x ${OPTARG} ]; then
                 name_script=$(basename ${OPTARG} | cut -d'.' -f1)
-                cp ${OPTARG} ~/.local/bin/${name_script}
-                echo -e "Added [${name_script}] to ~/.local/bin/"
+                cp -u ${OPTARG} ~/.local/bin/${name_script}
+                echo -e "Added '${name_script}' to ~/.local/bin/"
             else
                 echo -e "${RED}\e[1mError:\e[0m${NC} unvalid file: is not executable"
 		        echo "Run « ./rfew.sh -h » for more information" 
@@ -57,7 +58,7 @@ while getopts "hla:r:" options; do
             name_script=$(basename ${OPTARG} | cut -d'.' -f1)
             if [ -x ~/.local/bin/${name_script} ]; then
                 rm -i ~/.local/bin/${name_script}
-                echo "Removed [${name_script}] from ~/.local/bin/"
+                echo "Removed '${name_script}' from ~/.local/bin/"
             else
                 echo -e "${RED}\e[1mError:\e[0m${NC} unvalid file: no such file '${name_script}'\n"
                 echo "Script files you can remove from ~/.local/bin/ :"
